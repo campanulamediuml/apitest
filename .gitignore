@@ -1,0 +1,16 @@
+
+*.pyc
+
+amazon/config.py
+
+joom/config.py
+
+wish/config.py
+
+*.pyc
+
+*.pyc
+
+wish/config.py
+
+wish/method/config.py
