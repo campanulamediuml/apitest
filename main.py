@@ -8,13 +8,13 @@ class get_test_1(tornado.web.RequestHandler):
         print(result)
         self.write(result)
 
-class post_test_1(tornado.web.RequestHandler):
+class wish_execute(tornado.web.RequestHandler):
     def post(self):
         result = method.post_method(self)
         print(result)
         self.write(result)
 
-method_list = [("/get_test_1",get_test_1),("/post_test_1",post_test_1)]
+method_list = [("/get_test_1",get_test_1),("/wish_execute",wish_execute)]
 
 application = tornado.web.Application(method_list)
 
