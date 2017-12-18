@@ -4,21 +4,15 @@ import method
 
 class get_test_1(tornado.web.RequestHandler):
     def get(self):
-        #填写
-        self.write()
+        result = method.get_method(self)
+        print(result)
+        self.write(result)
 
 class post_test_1(tornado.web.RequestHandler):
     def post(self):
         result = method.post_method(self)
         print(result)
-        if not result:
-            self.set_status(400)
-            self.write("content is null.")
-            self.finish()
-            return
-        else:
-            self.write(result)
-            return
+        self.write(result)
 
 method_list = [("/get_test_1",get_test_1),("/post_test_1",post_test_1)]
 

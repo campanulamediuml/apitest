@@ -14,3 +14,5 @@ wish/config.py
 wish/config.py
 
 wish/method/config.py
+
+db.py

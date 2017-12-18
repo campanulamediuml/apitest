@@ -1,7 +1,10 @@
 import json
 
-def get_1():
-    return 1+1
+def get_method(request):
+    content = request.get_argument("content",None)
+    result = {"tip":"get successful","content":content}
+    result = json.dumps(result)
+    return result
 
 def post_method(request):
     content = request.get_argument("content",None)
