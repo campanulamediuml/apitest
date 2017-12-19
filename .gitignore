@@ -1,0 +1,10 @@
+
+*.pyc
+
+amazon/config.py
+
+common_methods/db.py
+
+wish/config.py
+
+joom/config.py
