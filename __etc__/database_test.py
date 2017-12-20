@@ -1,4 +1,12 @@
-import MySQLdb as mydatabase
+def sqrt(left_point,right_point,num):
+    mid_point = right_point/2
+    if ((right_point/2)**2)-num > 1:
+        left_point = 0
+        right_point = right_point/2
+        return sqrt(left_point,right_point,num)
+    elif ((right_point/2)**2)-num < 1:
+        left_point = right_point/2
+        right_point = right_point
+        return sqrt(left_point,right_point,num)
 
-conn = mydatabase.connect(host=db.host, port=db.port, user=db.user, passwd=db.passwd, db=db.db, charset=db.charset)
-cursor = conn.cursor()
+print sqrt(0,9,9)

@@ -1,6 +1,27 @@
 import requests
+import json
+import time
+from multiprocessing.dummy import Pool as ThreadPool
 
-url = 'http://localhost:8888/post_test_1'
-content = {'content':'just a content'}
-r = requests.post(url,content)
-print(r.text)
+def main():
+    url = 'http://localhost:8888/amazon_execute/product'
+    content_1 = {'store_id':'test','method_type':'products','method':'GetMatchingProduct','asin':'B00HHIA5XA,B06XHJMK87','market_place':'usa'}
+    content_2 = {'store_id':'test','method_type':'products','method':'ListMatchingProducts','keyword':'condom dildo','market_place':'usa'}
+    time_1 = time.time()
+    r=requests.post(url,content_2)
+    time_2 = time.time()
+
+    print(r.text,'\n',time_2-time_1)
+
+# def thread_test(num):
+#     url = 'http://localhost:8888/thread_test'
+#     content = {'thread':str(num)}
+#     r=requests.post(url,content)
+
+# num_list = range(0,100)
+# pool = ThreadPool(20)
+
+# pool.map(thread_test,num_list)
+
+
+print(main())
