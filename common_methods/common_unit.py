@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../')
 import time
 from urllib.parse import quote
 import hmac
@@ -5,6 +7,13 @@ import base64
 import hashlib
 import xmltodict
 import json
+import pymysql as mydatabase
+from common_methods import db
+
+def database_connection():
+    conn = mydatabase.connect(host=db.host, port=db.port, user=db.user, passwd=db.passwd, db='db_dolphin', charset=db.charset)
+    cursor = conn.cursor()
+    return cursor,conn
 
 def cal_signature(string,secret_key):
     message = bytes(string.encode('utf-8'))
