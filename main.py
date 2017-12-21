@@ -26,13 +26,23 @@ class amazon_execute_product(tornado.web.RequestHandler):
         result = http_method.amazon_execute_method_product(self)
         self.write(result)
 
-class thread_test(tornado.web.RequestHandler):
+class amazon_execute_order(tornado.web.RequestHandler):
     def post(self):
-        result = http_method.thread_test_method(self)
+        result = http_method.amazon_execute_method_order(self)
         self.write(result)
+
+class amazon_execute_seller(tornado.web.RequestHandler):
+    def post(self):
+        result = http_method.amazon_execute_method_seller(self)
+        self.write(result)
+
 #对应亚马逊的product接口
 
-method_list = [("/amazon_execute/product",amazon_execute_product),('/thread_test',thread_test)]
+method_list = [
+        ("/amazon_execute/product",amazon_execute_product),
+        ('/amazon_execute/order',amazon_execute_order),
+        ('/amazon_execute/seller',amazon_execute_seller)
+        ]
 #初始化方法列表
 application = tornado.web.Application(method_list)
 

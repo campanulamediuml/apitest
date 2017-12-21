@@ -77,6 +77,5 @@ default_params = [
             'SignatureMethod=HmacSHA256',
             'SignatureVersion=2',
             'Timestamp='+get_time_stamp(),
-            'Version=2011-10-01'
         ]
         #公用请求参数
